@@ -1,14 +1,17 @@
 # toy-mlir
 
+fixed to run on llvmorg-19.1.4
+
+
 This is an excerpt of the toy-language tutorial MLIR within LLVM. This
 repository (and commits, history) is alternate _view_ of the toy language
 tutorial.  I created this to have a smaller consolidated source and to follow
 what exactly is happening in source between chapters (by means of a _diff_
-view). 
+view).
 
 LLVM organizes this as different folders:
 [ch1](https://github.com/llvm/llvm-project/tree/main/mlir/examples/toy/ch1),
-[ch2](https://github.com/llvm/llvm-project/tree/main/mlir/examples/toy/ch2)... 
+[ch2](https://github.com/llvm/llvm-project/tree/main/mlir/examples/toy/ch2)...
 
 The following provides diffs corresponding to what's changing between chapters
 as opposed to the folder view, and for me is easier to follow and figure out.
@@ -41,7 +44,7 @@ git -C $LLVM_SOURCE_DIR checkout 555a71b
 
 # Clone this repository, and switch to source-root
 git clone https://github.com/jerinphilip/toy-mlir
-cd toy-mlir 
+cd toy-mlir
 
 # Build MLIR to $LLVM_SOURCE_DIR/build-mlir
 bash scripts/build-llvm-mlir.sh
