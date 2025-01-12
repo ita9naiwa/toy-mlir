@@ -148,6 +148,11 @@ int loadAndProcessMLIR(mlir::MLIRContext &context,
   // Apply any generic pass manager command line options and run the pipeline.
   if (mlir::failed(mlir::applyPassManagerCLOptions(pm)))
     return 4;
+  auto &funcPM = pm.nest<mlir::toy::FuncOp>();
+  // Add the CreateCFGPass to the nested pass manager
+  funcPM.addPass(mlir::toy::createCreateCFGPass());
+
+
 
   // Check to see what granularity of MLIR we are compiling to.
   bool isLoweringToAffine = emitAction >= Action::DumpMLIRAffine;
@@ -182,14 +187,14 @@ int loadAndProcessMLIR(mlir::MLIRContext &context,
     }
   }
 
+
   if (isLoweringToLLVM) {
     // Finish lowering the toy IR to the LLVM dialect.
     pm.addPass(mlir::toy::createLowerToLLVMPass());
     // This is necessary to have line tables emitted and basic
     // debugger working. In the future we will add proper debug information
     // emission directly from our frontend.
-    pm.addNestedPass<mlir::LLVM::LLVMFuncOp>(
-        mlir::LLVM::createDIScopeForLLVMFuncOpPass());
+    pm.addPass(mlir::LLVM::createDIScopeForLLVMFuncOpPass());
   }
 
   if (mlir::failed(pm.run(*module)))

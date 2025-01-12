@@ -32,6 +32,7 @@ add_executable(
   ToyCombine.cpp
   ShapeInferencePass.cpp
   LowerToAffineLoops.cpp
+  CreateCFGPass.cpp
   LowerToLLVM.cpp)
 
 add_dependencies(toyc OpsIncGen)
