@@ -150,9 +150,7 @@ int loadAndProcessMLIR(mlir::MLIRContext &context,
     return 4;
   auto &funcPM = pm.nest<mlir::toy::FuncOp>();
   // Add the CreateCFGPass to the nested pass manager
-  funcPM.addPass(mlir::toy::createCreateCFGPass());
-
-
+  // funcPM.addPass(mlir::toy::createCreateCFGPass());
 
   // Check to see what granularity of MLIR we are compiling to.
   bool isLoweringToAffine = emitAction >= Action::DumpMLIRAffine;

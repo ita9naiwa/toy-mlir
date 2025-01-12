@@ -20,7 +20,7 @@ class Pass;
 
 namespace toy {
   //  Just Print CFG and do nothig more.
-  std::unique_ptr<Pass> createCreateCFGPass();
+  // std::unique_ptr<Pass> createCreateCFGPass();
 
   std::unique_ptr<Pass> createShapeInferencePass();
 

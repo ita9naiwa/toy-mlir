@@ -25,7 +25,7 @@
 #include "toy/ShapeInferenceInterface.h"
 
 namespace mlir {
-namespace toy {
+namespace toy {                                
 namespace detail {
 struct StructTypeStorage;
 } // namespace detail

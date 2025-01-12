@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LLVM_BUILD_DIR=$HOME/code/llvm-project/build-mlir
+LLVM_BUILD_DIR=$HOME/src/llvm-project/build-mlir
 
 MLIR_DIR=${LLVM_BUILD_DIR}/lib/cmake/mlir
 LLVM_EXTERNAL_LIT=${LLVM_BUILD_DIR}/bin/llvm-lit
